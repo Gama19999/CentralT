@@ -290,7 +290,7 @@
                                 <Insets left="130.0" top="410.0" />
                             </GridPane.margin>
                         </ImageView>
-                        <Label text="Damar's Phone" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Label text="Sebastian's Phone" GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Georgia Pro Bold" size="12.0" />
                             </font>

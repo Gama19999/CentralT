@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.shape.Line;
 
 public class Controller {
     @FXML // fx:id="conect1"
@@ -49,7 +50,7 @@ public class Controller {
         users1.getSelectionModel().select("Usuario 1");
 
         users2.getItems().removeAll(users2.getItems());
-        users2.getItems().addAll("Damar","Raul","Rossi","Diego");
+        users2.getItems().addAll("Sebastian","Raul","Rossi","Diego");
         users2.getSelectionModel().select("Usuario 2");
     }
 }
