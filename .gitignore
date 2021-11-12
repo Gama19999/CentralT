@@ -1,0 +1,8 @@
+# Codifo gitignore para evitar procesar los directorios especificos
+
+#Ignora la carepta idea
+.idea
+
+# Ignora la carpeta target
+target
+
