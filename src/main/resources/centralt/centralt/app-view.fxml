@@ -324,12 +324,13 @@
                         </Label>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1124.0" GridPane.rowIndex="2">
                      <children>
-                        <Line endX="-2.0" endY="-9.5" fill="TRANSPARENT" layoutX="121.0" layoutY="142.0" startX="-121.0" startY="-74.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" AnchorPane.bottomAnchor="452.7928924560547" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="999.7928924560547" AnchorPane.topAnchor="64.0" />
+                        <Line fx:id="lineJ0" endX="-2.0" endY="-9.5" fill="TRANSPARENT" layoutX="121.0" layoutY="142.0" startX="-121.0" startY="-74.0" stroke="#f20d06d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" visible="false" AnchorPane.bottomAnchor="452.7928924560547" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="999.7928924560547" AnchorPane.topAnchor="64.0" />
                         <Line endX="-2.5" endY="-153.5" fill="TRANSPARENT" layoutX="121.0" layoutY="286.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="-2.25" endY="12.5" fill="TRANSPARENT" layoutX="121.0" layoutY="286.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="-2.25" endY="-136.5" fill="TRANSPARENT" layoutX="121.0" layoutY="435.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="-2.0" endY="-109.25" fill="TRANSPARENT" layoutX="121.0" layoutY="580.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="-2.0" endY="35.75" fill="TRANSPARENT" layoutX="121.0" layoutY="435.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line fx:id="lineJ1" endX="66.0" endY="-51.0" layoutX="269.0" layoutY="129.0" startX="-99.0" startY="-2.0" stroke="#c60d0d" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" visible="false" />
                      </children>
                      <GridPane.margin>
                         <Insets left="90.0" />

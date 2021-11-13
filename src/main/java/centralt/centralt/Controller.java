@@ -18,10 +18,26 @@ public class Controller {
 
     @FXML // fx:id="users2"
     private ComboBox<String> users2;
+    @FXML
+    private Line lineJ0;
+    @FXML
+    private Line lineJ1;
 
     @FXML
-    protected void conect1Pressed() {
-        System.out.println("Conectado User 1!");
+    protected void conect1Pressed() {System.out.println("Conectado User 1!");
+
+        if(users1.getSelectionModel().getSelectedItem().equals("Jorge")) {
+            lineJ0.setVisible(true);
+            lineJ1.setVisible(true);
+        }
+        if(users1.getSelectionModel().getSelectedItem().equals("Oscar"))
+        {
+            lineJ1.setStartX(-98);
+            lineJ1.setStartY(-18);
+            lineJ1.setEndX(73);
+            lineJ1.setEndY(46);
+            lineJ1.setVisible(true);
+        }
     }
 
     @FXML
@@ -35,7 +51,11 @@ public class Controller {
         System.out.println(selected);
         System.out.println(e.toString());
     }
+    @FXML
+    protected void setLine0()
+    {
 
+    }
     @FXML
     protected void user2Selected(ActionEvent e) {
         String selected = users2.getSelectionModel().getSelectedItem();
