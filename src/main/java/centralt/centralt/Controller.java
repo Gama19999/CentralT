@@ -7,21 +7,42 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 public class Controller {
+
+    // BUTTONS
     @FXML // fx:id="conect1"
     private Button conect1;
-
     @FXML // fx:id="conect2"
     private Button conect2;
+    @FXML
+    private Button colgarU11;
+    @FXML
+    private Button colgarU12;
+    @FXML
+    private Button colgarU13;
+    @FXML
+    private Button colgarU14;
+    @FXML
+    private Button colgarU21;
+    @FXML
+    private Button colgarU22;
+    @FXML
+    private Button colgarU23;
+    @FXML
+    private Button colgarU24;
 
+    // COMBOBOXES
     @FXML // fx:id="users1"
     private ComboBox<String> users1;
 
     @FXML // fx:id="users2"
     private ComboBox<String> users2;
 
+    // LABELS
     @FXML // fx:id="timer"
     private Label timer;
 
+
+    // METHODS
     @FXML
     protected void conect1Pressed() {
         System.out.println("Conectado User 1!");
@@ -32,6 +53,11 @@ public class Controller {
     protected void conect2Pressed() {
         System.out.println("Conectado  User2!");
         timer.setText("Cronometro");
+    }
+
+    @FXML
+    protected void colgar(ActionEvent e) {
+        System.out.println((e.getSource()));
     }
 
     @FXML
