@@ -6,7 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import java.util.Date;
+
 public class Controller {
+    Operaciones obj1 = new Operaciones();
 
     // BUTTONS
     @FXML // fx:id="conect1"
@@ -39,25 +42,28 @@ public class Controller {
 
     // LABELS
     @FXML // fx:id="timer"
-    private Label timer;
+    protected Label timer;
 
 
     // METHODS
     @FXML
     protected void conect1Pressed() {
         System.out.println("Conectado User 1!");
-        timer.setText("Cronometro");
+        obj1.startTime();
     }
 
     @FXML
     protected void conect2Pressed() {
         System.out.println("Conectado  User2!");
-        timer.setText("Cronometro");
+        obj1.startTime();
     }
 
     @FXML
     protected void colgar(ActionEvent e) {
         System.out.println((e.getSource()));
+
+        Date t = obj1.calculateSecs(System.currentTimeMillis());
+        timer.setText(String.format("Segundos transcurridos %d:%d", t.getMinutes(), t.getSeconds()));
     }
 
     @FXML
