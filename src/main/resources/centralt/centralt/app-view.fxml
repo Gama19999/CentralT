@@ -354,6 +354,12 @@
                         <Line endX="-3.0" endY="-124.0" fill="TRANSPARENT" layoutX="963.0" layoutY="449.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="3.0" endY="41.0" fill="TRANSPARENT" layoutX="962.0" layoutY="439.0" startX="-121.0" startY="-74.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                         <Line endX="-1.0" endY="-115.0" fill="TRANSPARENT" layoutX="965.0" layoutY="595.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.5" endY="-153.5" fill="TRANSPARENT" layoutX="1134.0" layoutY="235.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.5" endY="-153.5" fill="TRANSPARENT" layoutX="1134.0" layoutY="381.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.5" endY="-153.5" fill="TRANSPARENT" layoutX="1134.0" layoutY="529.0" startX="-121.0" startY="-83.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.0" endY="-9.5" fill="TRANSPARENT" layoutX="1134.0" layoutY="228.0" startX="-121.0" startY="-74.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.0" endY="-9.5" fill="TRANSPARENT" layoutX="1134.0" layoutY="371.0" startX="-121.0" startY="-74.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
+                        <Line endX="-2.0" endY="-9.5" fill="TRANSPARENT" layoutX="1135.0" layoutY="519.0" startX="-121.0" startY="-74.0" stroke="#042b54d1" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" />
                      </children>
                      <GridPane.margin>
                         <Insets left="90.0" />
