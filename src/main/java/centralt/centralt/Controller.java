@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 public class Controller {
+    Operaciones obj1=new Operaciones();
     @FXML // fx:id="conect1"
     private Button conect1;
 
@@ -20,18 +21,18 @@ public class Controller {
     private ComboBox<String> users2;
 
     @FXML // fx:id="timer"
-    private Label timer;
+    protected Label timer;
 
     @FXML
     protected void conect1Pressed() {
         System.out.println("Conectado User 1!");
-        timer.setText("Cronometro");
+            obj1.Tiempo(timer,true);
     }
 
     @FXML
     protected void conect2Pressed() {
         System.out.println("Conectado  User2!");
-        timer.setText("Cronometro");
+        timer.setText("");
     }
 
     @FXML
