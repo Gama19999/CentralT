@@ -6,3 +6,6 @@
 # Ignora la carpeta target
 target
 
+# Ignora archivos .iml
+*.iml
+

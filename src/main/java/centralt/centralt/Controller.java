@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.shape.Line;
+import javafx.scene.control.Label;
 
 public class Controller {
     @FXML // fx:id="conect1"
@@ -19,14 +19,19 @@ public class Controller {
     @FXML // fx:id="users2"
     private ComboBox<String> users2;
 
+    @FXML // fx:id="timer"
+    private Label timer;
+
     @FXML
     protected void conect1Pressed() {
         System.out.println("Conectado User 1!");
+        timer.setText("Cronometro");
     }
 
     @FXML
     protected void conect2Pressed() {
-        System.out.println("Conectado User2!");
+        System.out.println("Conectado  User2!");
+        timer.setText("Cronometro");
     }
 
     @FXML
