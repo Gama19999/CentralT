@@ -152,8 +152,8 @@ public class Controller {
         int indexToFree = -1;
 
         // Verifica que boton se presiono
-        for (int x = 0; x < buttons.size(); ++x) {
-            buttonNumber = e.getSource().equals(buttons.get(x)) ? x : -1;
+        for (int i = 0; i < buttons.size(); ++i) {
+            buttonNumber = e.getSource().equals(buttons.get(i)) ? i : -1;
             System.out.println(e.getSource().toString());
             System.out.println("Boton presionado" + buttonNumber);
             if (buttonNumber != -1) break;
@@ -210,8 +210,8 @@ public class Controller {
         int source = -1;
 
         // Verifica que boton de pagar se acciona
-        for (int x = 0; x < paids.size(); ++x) {
-            source = e.getSource().equals(paids.get(x)) ? x : -1;
+        for (int i = 0; i < paids.size(); ++i) {
+            source = e.getSource().equals(paids.get(i)) ? i : -1;
             if (source != -1) break;
         }
 
