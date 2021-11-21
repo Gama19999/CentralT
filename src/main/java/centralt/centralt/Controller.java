@@ -96,18 +96,20 @@ public class Controller {
         if(personas.get(involucrado1)){
             if(personas.get(involucrado2)){
                 for(int i=0; i<4; i++){
-                    if(!paids.get(i).isVisible()){
-                        links.add(new Enlace(involucrado1, involucrado2, i));
-                        info.setText("Enlace Establecido");
-                        x++;
+                    if(!buttons.get(i).isVisible()){
+                        if(!paids.get(i).isVisible()) {
+                            links.add(new Enlace(involucrado1, involucrado2, i));
+                            info.setText("Enlace Establecido");
+                            x++;
 
-                        personas.replace(involucrado1, false);
-                        personas.replace(involucrado2, false);
+                            personas.replace(involucrado1, false);
+                            personas.replace(involucrado2, false);
 
-                        labels.get(i).setText("Enlace " + i + ": " + involucrado1 + " conectado con " + involucrado2);
-                        labels.get(i).setVisible(true);
-                        buttons.get(i).setVisible(true);
-                        break;
+                            labels.get(i).setText("Llamada " + i + ": " + involucrado1 + " conectado con " + involucrado2);
+                            labels.get(i).setVisible(true);
+                            buttons.get(i).setVisible(true);
+                            break;
+                        }
                     }
                 }
             } else {
@@ -185,6 +187,8 @@ public class Controller {
             source = e.getSource().equals(paids.get(i)) ? i : -1;
             if (source != -1) break;
         }
+
+        labels.get(source).setText("Enlace");
 
         info.setText("¡Enlace " + source + " pagado!");
         paids.get(source).setVisible(false);
