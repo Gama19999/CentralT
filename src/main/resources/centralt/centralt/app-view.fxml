@@ -370,7 +370,10 @@
                         <Insets left="90.0" />
                      </GridPane.margin>
                   </AnchorPane>
-                  <Label fx:id="info" text="ESTADO DEL PROGRAMA" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label fx:id="info" text="ESTADO DE ENLACES" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font></Label>
                     </children>
                 </GridPane>
             </content>

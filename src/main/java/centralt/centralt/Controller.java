@@ -93,34 +93,28 @@ public class Controller {
 
         // Verificando disponibilidad del enlace
 
-        if(personas.get(involucrado1).booleanValue() == false && personas.get(involucrado2).booleanValue() == false){
-            info.setText("¡Ambos usuarios están ocupados");
-        } else {
+        if(personas.get(involucrado1)){
+            if(personas.get(involucrado2)){
+                for(int i=0; i<4; i++){
+                    if(!paids.get(i).isVisible()){
+                        links.add(new Enlace(involucrado1, involucrado2, i));
+                        info.setText("Enlace Establecido");
+                        x++;
 
-            if (personas.get(involucrado1)) {
-                if (personas.get(involucrado2)) {
-                    // Creando un nuevo enlace
-                    x++;
-                    links.add(new Enlace(involucrado1, involucrado2, x));
-                    System.out.println("Agregado enlace" + x);
+                        personas.replace(involucrado1, false);
+                        personas.replace(involucrado2, false);
 
-                    // Cambiando estado del usuario a ocupado
-                    personas.replace(involucrado1, false);
-                    personas.replace(involucrado2, false);
-
-                    // Cambiando y mostrando LABEL y BUTTON
-                    info.setText("Enlace Establecido");
-
-                    labels.get(x).setText("Enlace " + x + ": " + involucrado1 + " conectado con " + involucrado2);
-                    labels.get(x).setVisible(true);
-                    buttons.get(x).setVisible(true);
-                } else { // Usuario 2 ocupado
-                    info.setText("¡" + involucrado2 + " está ocupado!");
+                        labels.get(i).setText("Enlace " + i + ": " + involucrado1 + " conectado con " + involucrado2);
+                        labels.get(i).setVisible(true);
+                        buttons.get(i).setVisible(true);
+                        break;
+                    }
                 }
-            } else { // Usuario 1 ocupado
-                info.setText("¡" + involucrado1 + " está ocupado!");
+            } else {
+                info.setText("¡" + involucrado2 + " está ocupado!");
             }
-
+        } else {
+            info.setText("¡" + involucrado1 + " está ocupado!");
         }
 
         // TODO inicializar ruta
