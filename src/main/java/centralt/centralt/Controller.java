@@ -71,20 +71,6 @@ public class Controller {
 
     private ArrayList<Label> labels;
 
-    // LINES
-    @FXML
-    protected Line line1h1; // Línea cambio
-    @FXML
-    protected Line line2h1; // Línea cambio
-    @FXML
-    protected Line line3h1; // Línea cambio
-    @FXML
-    protected Line line4h1; // Línea cambio
-    @FXML
-    protected Line line5h1; // Línea cambio
-    @FXML
-    protected Line line6h1; // Línea cambio
-
     int aux = 0; // Línea cambio
 
     // METHODS
@@ -106,37 +92,38 @@ public class Controller {
         }
 
         // Verificando disponibilidad del enlace
-        if (personas.get(involucrado1)) {
-            if (personas.get(involucrado2)) {
-                // Creando un nuevo enlace
-                x++;
-                links.add(new Enlace(involucrado1, involucrado2, x));
-                System.out.println("Agregado enlace" + x);
 
-                // Cambiando estado del usuario a ocupado
-                personas.replace(involucrado1, false);
-                personas.replace(involucrado2, false);
+        if(personas.get(involucrado1).booleanValue() == false && personas.get(involucrado2).booleanValue() == false){
+            info.setText("¡Ambos usuarios están ocupados");
+        } else {
 
-                // Cambiando y mostrando LABEL y BUTTON
-                labels.get(x).setText("Enlace " + x + ": " + involucrado1 + " conectado con " + involucrado2);
-                labels.get(x).setVisible(true);
-                buttons.get(x).setVisible(true);
+            if (personas.get(involucrado1)) {
+                if (personas.get(involucrado2)) {
+                    // Creando un nuevo enlace
+                    x++;
+                    links.add(new Enlace(involucrado1, involucrado2, x));
+                    System.out.println("Agregado enlace" + x);
+
+                    // Cambiando estado del usuario a ocupado
+                    personas.replace(involucrado1, false);
+                    personas.replace(involucrado2, false);
+
+                    // Cambiando y mostrando LABEL y BUTTON
+                    info.setText("Enlace Establecido");
+
+                    labels.get(x).setText("Enlace " + x + ": " + involucrado1 + " conectado con " + involucrado2);
+                    labels.get(x).setVisible(true);
+                    buttons.get(x).setVisible(true);
+                } else { // Usuario 2 ocupado
+                    info.setText("¡" + involucrado2 + " está ocupado!");
+                }
             } else { // Usuario 1 ocupado
-                info.setText("¡" + involucrado2 + " está ocupado!");
+                info.setText("¡" + involucrado1 + " está ocupado!");
             }
-        } else { // Usuario 1 ocupado
-            info.setText("¡" + involucrado1 + " está ocupado!");
+
         }
 
         // TODO inicializar ruta
-        if((users1.getSelectionModel().getSelectedItem().equals("Jorge") && users2.getSelectionModel().getSelectedItem().equals("Sebastian")) && line1h1.isVisible()){ // Líneas cambio
-            line1h1.setVisible(false);
-            line2h1.setVisible(false);
-            line3h1.setVisible(false);
-            line4h1.setVisible(false);
-            line5h1.setVisible(false);
-            line6h1.setVisible(false);
-        }
 
         // Regresando comboboxes al original
         users1.getSelectionModel().select("Usuario 1");
@@ -190,19 +177,6 @@ public class Controller {
             buttons.get(buttonNumber).setVisible(false);
             paids.get(buttonNumber).setVisible(true);
         }
-
-
-        /*
-        aux++; // Líneas cambio
-        if(users1.getSelectionModel().getSelectedItem().equals("Usuario 1") || (users2.getSelectionModel().getSelectedItem().equals("Usuario 2"))){
-            info.setText("No hay nadie seleccionado en los extremos");
-        } else if(aux == 1){
-            Date t = obj1.calculateSecs(System.currentTimeMillis());
-            info.setText(String.format("Segundos transcurridos %d:%d", t.getMinutes(), t.getSeconds()));
-        } else{
-            info.setText("Ya se terminó la llamada");
-        }
-        */
     }
 
     @FXML
