@@ -132,6 +132,9 @@ public class Controller {
 
     @FXML
     protected void colgar(ActionEvent e) {
+
+        info.setText("Enlace Liberado. Presione Pagado.");
+
         int minutos = 0;
         int segundos = 0;
         float price = 0.0f;
