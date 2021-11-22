@@ -71,7 +71,92 @@ public class Controller {
 
     private ArrayList<Label> labels;
 
-    int aux = 0; // Línea cambio
+    // LINES
+    @FXML
+    protected Line col1_1;
+    @FXML
+    protected Line col1_2;
+    @FXML
+    protected Line col1_3;
+    @FXML
+    protected Line col1_4;
+    @FXML
+    protected Line col1_5;
+    @FXML
+    protected Line col1_6;
+
+    @FXML
+    protected Line col2_1;
+    @FXML
+    protected Line col2_2;
+    @FXML
+    protected Line col2_3;
+    @FXML
+    protected Line col2_4;
+    @FXML
+    protected Line col2_5;
+    @FXML
+    protected Line col2_6;
+
+    @FXML
+    protected Line col3_1;
+    @FXML
+    protected Line col3_2;
+    @FXML
+    protected Line col3_3;
+    @FXML
+    protected Line col3_4;
+    @FXML
+    protected Line col3_5;
+    @FXML
+    protected Line col3_6;
+    @FXML
+    protected Line col3_7;
+    @FXML
+    protected Line col3_8;
+
+    @FXML
+    protected Line col4_1;
+    @FXML
+    protected Line col4_2;
+    @FXML
+    protected Line col4_3;
+    @FXML
+    protected Line col4_4;
+    @FXML
+    protected Line col4_5;
+    @FXML
+    protected Line col4_6;
+    @FXML
+    protected Line col4_7;
+    @FXML
+    protected Line col4_8;
+
+    @FXML
+    protected Line col5_1;
+    @FXML
+    protected Line col5_2;
+    @FXML
+    protected Line col5_3;
+    @FXML
+    protected Line col5_4;
+    @FXML
+    protected Line col5_5;
+    @FXML
+    protected Line col5_6;
+
+    @FXML
+    protected Line col6_1;
+    @FXML
+    protected Line col6_2;
+    @FXML
+    protected Line col6_3;
+    @FXML
+    protected Line col6_4;
+    @FXML
+    protected Line col6_5;
+    @FXML
+    protected Line col6_6;
 
     // METHODS
     @FXML
