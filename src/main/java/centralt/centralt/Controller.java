@@ -6,12 +6,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 
 import java.util.*;
 
 public class Controller {
     private int x = -1;
+
+    // COLORES
+    private final String def = "#042b54";
+    private final Color jorge = Color.RED;
+    private final Color oscar = Color.GREENYELLOW;
+    private final Color chris = Color.ORANGE;
+    private final Color gama = Color.CHOCOLATE;
+
+    // VARIABLES ROUTERS
+    private boolean primerRouter = true;
+    private boolean segundoRouter = true;
+    private boolean tercerRouter = true;
 
     // PERSONAS
     private HashMap<String, Boolean> personas;
@@ -158,6 +172,10 @@ public class Controller {
     @FXML
     protected Line col6_6;
 
+    // LINEAS PERSONAS
+    private ArrayList<Line> lineasJorge;
+    private ArrayList<Line> lineasOscar;
+
     // METHODS
     @FXML
     protected void conectPressed() {
@@ -177,7 +195,6 @@ public class Controller {
         }
 
         // Verificando disponibilidad del enlace
-
         if(personas.get(involucrado1)){
             if(personas.get(involucrado2)){
                 for(int i=0; i<4; i++){
@@ -189,6 +206,9 @@ public class Controller {
 
                             personas.replace(involucrado1, false);
                             personas.replace(involucrado2, false);
+
+                            if (involucrado1.equals("Jorge")) rutaJorge(involucrado2);
+                            if (involucrado1.equals("Oscar")) rutaOscar(involucrado2);
 
                             labels.get(i).setText("Llamada " + i + ": " + involucrado1 + " conectado con " + involucrado2);
                             labels.get(i).setVisible(true);
@@ -249,6 +269,7 @@ public class Controller {
             price = (timer.getMinutes() * 1.5f) + (timer.getSeconds() * 0.75f);
 
             // TODO terminar ruta
+            limpiarRuta(links.get(indexToFree).getInvolucrados().getKey());
 
             // Actualizando estado de usuario a libre
             personas.replace(links.get(indexToFree).getInvolucrados().getKey(), true);
@@ -294,6 +315,156 @@ public class Controller {
         System.out.println(e.toString());
     }
 
+    private void rutaJorge(String usuario2) {
+        switch (usuario2) {
+            case "Sebas" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_1.setStroke(jorge);
+                    col2_1.setStroke(jorge);
+                    col3_1.setStroke(jorge);
+                    col4_1.setStroke(jorge);
+                    col5_1.setStroke(jorge);
+                    col6_1.setStroke(jorge);
+                }
+            }
+            case "Raul" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_1.setStroke(jorge);
+                    col2_1.setStroke(jorge);
+                    col3_1.setStroke(jorge);
+                    col4_1.setStroke(jorge);
+                    col5_1.setStroke(jorge);
+                    col6_2.setStroke(jorge);
+                }
+            }
+            case "Rossi" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_1.setStroke(jorge);
+                    col2_1.setStroke(jorge);
+                    col3_1.setStroke(jorge);
+                    col4_2.setStroke(jorge);
+                    col5_3.setStroke(jorge);
+                    col6_4.setStroke(jorge);
+                }
+            }
+            case "Diego" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_1.setStroke(jorge);
+                    col2_1.setStroke(jorge);
+                    col3_2.setStroke(jorge);
+                    col4_4.setStroke(jorge);
+                    col5_5.setStroke(jorge);
+                    col6_6.setStroke(jorge);
+                }
+            }
+            default -> {}
+        }
+    }
+
+    private void rutaOscar(String usuario2) {
+        switch (usuario2) {
+            case "Sebas" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_2.setStroke(oscar);
+                    col2_1.setStroke(oscar);
+                    col3_1.setStroke(oscar);
+                    col4_1.setStroke(oscar);
+                    col5_1.setStroke(oscar);
+                    col6_1.setStroke(oscar);
+                } else if (segundoRouter) {
+                    segundoRouter = false;
+                    col1_3.setStroke(oscar);
+                    col2_3.setStroke(oscar);
+                    col3_3.setStroke(oscar);
+                    col4_1.setStroke(oscar);
+                    col5_1.setStroke(oscar);
+                    col6_1.setStroke(oscar);
+                }
+            }
+            case "Raul" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_2.setStroke(oscar);
+                    col2_1.setStroke(oscar);
+                    col3_1.setStroke(oscar);
+                    col4_1.setStroke(oscar);
+                    col5_1.setStroke(oscar);
+                    col6_2.setStroke(oscar);
+                }
+                else if (segundoRouter) {
+                    segundoRouter = false;
+                    col1_3.setStroke(oscar);
+                    col2_3.setStroke(oscar);
+                    col3_3.setStroke(oscar);
+                    col4_1.setStroke(oscar);
+                    col5_1.setStroke(oscar);
+                    col6_2.setStroke(oscar);
+                }
+            }
+            case "Rossi" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_2.setStroke(oscar);
+                    col2_1.setStroke(oscar);
+                    col3_1.setStroke(oscar);
+                    col4_2.setStroke(oscar);
+                    col5_3.setStroke(oscar);
+                    col6_4.setStroke(oscar);
+                } else if (segundoRouter) {
+                    segundoRouter = false;
+                    col1_3.setStroke(oscar);
+                    col2_3.setStroke(oscar);
+                    col3_3.setStroke(oscar);
+                    col4_2.setStroke(oscar);
+                    col5_3.setStroke(oscar);
+                    col6_4.setStroke(oscar);
+                }
+            }
+            case "Diego" -> {
+                if (primerRouter) {
+                    primerRouter = false;
+                    col1_2.setStroke(oscar);
+                    col2_1.setStroke(oscar);
+                    col3_2.setStroke(oscar);
+                    col4_4.setStroke(oscar);
+                    col5_5.setStroke(oscar);
+                    col6_6.setStroke(oscar);
+                } else if (segundoRouter) {
+                    segundoRouter = false;
+                    col1_3.setStroke(oscar);
+                    col2_3.setStroke(oscar);
+                    col3_4.setStroke(oscar);
+                    col4_6.setStroke(oscar);
+                    col5_6.setStroke(oscar);
+                    col6_6.setStroke(oscar);
+                }
+            }
+            default -> {}
+        }
+    }
+
+    private void limpiarRuta(String usuario1) {
+        switch (usuario1) {
+            case "Jorge" -> {
+                primerRouter = true;
+                for (Line l : lineasJorge) {
+                    l.setStroke(Paint.valueOf(def));
+                }
+            }
+            case "Oscar" -> {
+                primerRouter = true;
+                for (Line l : lineasOscar) {
+                    l.setStroke(Paint.valueOf(def));
+                }
+            }
+        }
+    }
+
     @FXML // This method is called by the FXMLLoader when initialization is complete
     public void initialize() {
         // USUARIOS
@@ -319,6 +490,10 @@ public class Controller {
         labels = new ArrayList<>(Arrays.asList(
                 enlace1,enlace2,enlace3,enlace4,enlaceEspera1,enlaceEspera2,enlaceEspera3
         ));
+
+        lineasJorge = new ArrayList<>(Arrays.asList(col1_1,col2_1,col3_1,col4_1,col4_2,col4_4,col5_1,col5_3,col5_5,
+                col6_1,col6_4,col6_6));
+        lineasOscar = new ArrayList<>(Arrays.asList(col1_2,col2_1,col3_1,col4_1,col5_1,col6_1,col1_3,col2_3,col3_2,col3_3,col4_2,col4_4,col5_1,col5_3,col5_5,col6_1,col6_2,col6_4,col6_6));
 
         // INICIALIZANDO COMBOBOXES
         users1.getItems().removeAll(users1.getItems());
