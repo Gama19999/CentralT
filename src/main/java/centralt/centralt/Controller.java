@@ -28,10 +28,36 @@ public class Controller {
     private boolean routerCol1_1 = true;
     private boolean routerCol1_2 = true;
     private boolean routerCol1_3 = true;
+    private boolean vacio1 = true;
+    private boolean routerCol2_1 = true;
+    private boolean routerCol2_2 = true;
+    private boolean routerCol2_3 = true;
+    private boolean routerCol2_4 = true;
+    private boolean routerCol3_1 = true;
+    private boolean routerCol3_2 = true;
+    private boolean routerCol3_3 = true;
+    private boolean routerCol3_4 = true;
+    private boolean routerCol4_1 = true;
+    private boolean routerCol4_2 = true;
+    private boolean routerCol4_3 = true;
+    private boolean routerCol4_4 = true;
+    private boolean routerCol5_1 = true;
+    private boolean routerCol5_2 = true;
+    private boolean routerCol5_3 = true;
+    private boolean vacio2 = true;
+
+    private ArrayList<Boolean> rutasRouterCol1;
+    private ArrayList<Boolean> rutasRouterCol2;
+    private ArrayList<Boolean> rutasRouterCol3;
+    private ArrayList<Boolean> rutasRouterCol4;
+    private ArrayList<Boolean> rutasRouterCol5;
+
 
     // NUMERO DE ROUTER QUE TOMARON (Oscar, Christian) 1,2,3
-    private int routeOsc = -1;
-    private int routeChr = -1;
+    private int[] routeJor;
+    private int[] routeOsc;
+    private int[] routeChr;
+    private int[] routeGam;
 
     // PERSONAS
     private HashMap<String, Boolean> personas;
@@ -189,7 +215,7 @@ public class Controller {
 
         // Enlaces llenos
         if (x == 3) {
-            info.setText("¡Enlaces disponibles ocupados!");
+            info.setText("¡Enlaces disponibles ocupados o sin pagar!");
             return;
         }
 
@@ -199,8 +225,11 @@ public class Controller {
             return;
         }
 
+        System.out.println(rutasRouterCol1.toString());
+        System.out.println(rutasRouterCol2.toString());
+
         // TODO inicializar ruta
-        int possible;
+        int possible = 0;
         if (involucrado1.equals("Jorge")) {
             possible = rutaJorge(involucrado2);
             if (possible == -1) return;
@@ -271,7 +300,7 @@ public class Controller {
                 if (indexToFree != -1) break;
             }
 
-            x--; // Resta un enlace
+            // x--; // Resta un enlace
 
             // Generando factura
             Date timer = links.get(indexToFree).finalizarTimer();
@@ -281,6 +310,7 @@ public class Controller {
 
             // TODO terminar ruta
             limpiarRuta(links.get(indexToFree).getInvolucrados().getKey());
+            System.out.println("Se liberaron los routes");
 
             // Actualizando estado de usuario a libre
             personas.replace(links.get(indexToFree).getInvolucrados().getKey(), true);
@@ -305,7 +335,10 @@ public class Controller {
             if (source != -1) break;
         }
 
+        // Regresa al default la Etiqueta
         labels.get(source).setText("Enlace");
+
+        x--; // Libera un enlace, porque ya se pago
 
         info.setText("¡Enlace " + source + " pagado!");
         paids.get(source).setVisible(false);
@@ -326,63 +359,128 @@ public class Controller {
         System.out.println(e.toString());
     }
 
+    /**
+     * Colorea la ruta (si disponible) entre usuario Jorge y Usuario 2
+     * @param usuario2 String con el usuario2
+     * @return Devuelve 0 si hay una ruta diponible. Devuelve -1 si no hay ruta disponible.
+     */
     private int rutaJorge(String usuario2) {
         switch (usuario2) {
             case "Sebas" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    col1_1.setStroke(jorge);
-                    col2_1.setStroke(jorge);
-                    col3_1.setStroke(jorge);
-                    col4_1.setStroke(jorge);
-                    col5_1.setStroke(jorge);
-                    col6_1.setStroke(jorge);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+
+                        System.out.println("Se convirtieron a false");
+
+                        for (int p = 0; p < 5; ++p) routeJor[p] = 0;
+
+                        col1_1.setStroke(jorge);
+                        col2_1.setStroke(jorge);
+                        col3_1.setStroke(jorge);
+                        col4_1.setStroke(jorge);
+                        col5_1.setStroke(jorge);
+                        col6_1.setStroke(jorge);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Jorge y Sebas");
                     return -1;
                 }
             }
             case "Raul" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    col1_1.setStroke(jorge);
-                    col2_1.setStroke(jorge);
-                    col3_1.setStroke(jorge);
-                    col4_1.setStroke(jorge);
-                    col5_1.setStroke(jorge);
-                    col6_2.setStroke(jorge);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+                        System.out.println("Se convirtieron a false");
+
+                        for (int p = 0; p < 5; ++p) routeJor[p] = 0;
+
+                        col1_1.setStroke(jorge);
+                        col2_1.setStroke(jorge);
+                        col3_1.setStroke(jorge);
+                        col4_1.setStroke(jorge);
+                        col5_1.setStroke(jorge);
+                        col6_2.setStroke(jorge);
+                        return 0;
+                    }  else {
+                        info.setText("Ruta no disponible para enlace Jorge y Raul");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Jorge y Raul");
                     return -1;
                 }
             }
             case "Rossi" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    col1_1.setStroke(jorge);
-                    col2_1.setStroke(jorge);
-                    col3_1.setStroke(jorge);
-                    col4_2.setStroke(jorge);
-                    col5_3.setStroke(jorge);
-                    col6_4.setStroke(jorge);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+                        System.out.println("Se convirtieron a false");
+
+                        for (int p = 0; p < 5; ++p) {
+                            if (p == 3 || p == 4) routeJor[p] = 1;
+                            else routeJor[p] = 0;
+                        }
+
+                        col1_1.setStroke(jorge);
+                        col2_1.setStroke(jorge);
+                        col3_1.setStroke(jorge);
+                        col4_2.setStroke(jorge);
+                        col5_3.setStroke(jorge);
+                        col6_4.setStroke(jorge);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Jorge y Rossi");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Jorge y Rossi");
                     return -1;
                 }
             }
             case "Diego" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    col1_1.setStroke(jorge);
-                    col2_1.setStroke(jorge);
-                    col3_2.setStroke(jorge);
-                    col4_4.setStroke(jorge);
-                    col5_5.setStroke(jorge);
-                    col6_6.setStroke(jorge);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(1)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(1, false);
+                        rutasRouterCol4.set(2, false);
+                        rutasRouterCol5.set(2, false);
+                        System.out.println("Se convirtieron a false");
+
+                        for (int p = 0; p < 5; ++p) {
+                            if (p == 2) routeJor[p] = 1;
+                            else if (p == 3 || p == 4) routeJor[p] = 2;
+                            else routeJor[p] = 0;
+                        }
+
+                        col1_1.setStroke(jorge);
+                        col2_1.setStroke(jorge);
+                        col3_2.setStroke(jorge);
+                        col4_4.setStroke(jorge);
+                        col5_5.setStroke(jorge);
+                        col6_6.setStroke(jorge);
+                        return 0;
+                    }  else {
+                        info.setText("Ruta no disponible para enlace Jorge y Diego");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Jorge y Diego");
                     return -1;
@@ -394,108 +492,245 @@ public class Controller {
         }
     }
 
+    /**
+     * Colorea la ruta (si disponible) entre usuario Oscar y Usuario 2
+     * @param usuario2 String con el usuario2
+     * @return Devuelve 0 si hay una ruta diponible. Devuelve -1 si no hay ruta disponible.
+     */
     private int rutaOscar(String usuario2) {
         switch (usuario2) {
             case "Sebas" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false; // Toma ese nodo router
-                    routeOsc = 1; // Tomo router 1
-                    col1_2.setStroke(oscar);
-                    col2_1.setStroke(oscar);
-                    col3_1.setStroke(oscar);
-                    col4_1.setStroke(oscar);
-                    col5_1.setStroke(oscar);
-                    col6_1.setStroke(oscar);
-                    return 0;
-                } else if (routerCol1_2) {
-                    routerCol1_2 = false;
-                    routeOsc = 2; // Tomo router 2
-                    col1_3.setStroke(oscar);
-                    col2_3.setStroke(oscar);
-                    col3_3.setStroke(oscar);
-                    col4_1.setStroke(oscar);
-                    col5_1.setStroke(oscar);
-                    col6_1.setStroke(oscar);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+
+                        for (int p = 0; p < 5; ++p) {
+                            routeOsc[p] = 0;
+                        }
+
+                        col1_2.setStroke(oscar);
+                        col2_1.setStroke(oscar);
+                        col3_1.setStroke(oscar);
+                        col4_1.setStroke(oscar);
+                        col5_1.setStroke(oscar);
+                        col6_1.setStroke(oscar);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Sebas");
+                        return -1;
+                    }
+                } else if (rutasRouterCol1.get(1)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(1, false);
+                        rutasRouterCol2.set(1, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+
+                        for (int p = 0; p < 5; ++p) {
+                            if (p >= 2) routeOsc[p] = 0;
+                            else routeOsc[p] = 1;
+                        }
+
+                        col1_3.setStroke(oscar);
+                        col2_3.setStroke(oscar);
+                        col3_3.setStroke(oscar);
+                        col4_1.setStroke(oscar);
+                        col5_1.setStroke(oscar);
+                        col6_1.setStroke(oscar);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Sebas");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Oscar y Sebas");
                     return -1;
                 }
             }
             case "Raul" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    routeOsc = 1;
-                    col1_2.setStroke(oscar);
-                    col2_1.setStroke(oscar);
-                    col3_1.setStroke(oscar);
-                    col4_1.setStroke(oscar);
-                    col5_1.setStroke(oscar);
-                    col6_2.setStroke(oscar);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(0, false);
+                        rutasRouterCol2.set(0, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+
+                        for (int p = 0; p < 5; ++p) {
+                            routeOsc[p] = 0;
+                        }
+
+                        col1_2.setStroke(oscar);
+                        col2_1.setStroke(oscar);
+                        col3_1.setStroke(oscar);
+                        col4_1.setStroke(oscar);
+                        col5_1.setStroke(oscar);
+                        col6_2.setStroke(oscar);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Raul");
+                        return -1;
+                    }
                 }
-                else if (routerCol1_2) {
-                    routerCol1_2 = false;
-                    routeOsc = 2;
-                    col1_3.setStroke(oscar);
-                    col2_3.setStroke(oscar);
-                    col3_3.setStroke(oscar);
-                    col4_1.setStroke(oscar);
-                    col5_1.setStroke(oscar);
-                    col6_2.setStroke(oscar);
-                    return 0;
+                else if (rutasRouterCol1.get(1)) {
+                    if (rutasRouterCol3.get(0)) {
+                        rutasRouterCol1.set(1, false);
+                        rutasRouterCol2.set(1, false);
+                        rutasRouterCol3.set(0, false);
+                        rutasRouterCol4.set(0, false);
+                        rutasRouterCol5.set(0, false);
+
+                        for (int p = 0; p < 5; ++p) {
+                            if (p >= 2) routeOsc[p] = 0;
+                            else routeOsc[p] = 1;
+                        }
+
+                        col1_3.setStroke(oscar);
+                        col2_3.setStroke(oscar);
+                        col3_3.setStroke(oscar);
+                        col4_1.setStroke(oscar);
+                        col5_1.setStroke(oscar);
+                        col6_2.setStroke(oscar);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Raul");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Oscar y Raul");
                     return -1;
                 }
             }
             case "Rossi" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    routeOsc = 1;
-                    col1_2.setStroke(oscar);
-                    col2_1.setStroke(oscar);
-                    col3_1.setStroke(oscar);
-                    col4_2.setStroke(oscar);
-                    col5_3.setStroke(oscar);
-                    col6_4.setStroke(oscar);
-                    return 0;
-                } else if (routerCol1_2) {
-                    routerCol1_2 = false;
-                    routeOsc = 2;
-                    col1_3.setStroke(oscar);
-                    col2_3.setStroke(oscar);
-                    col3_3.setStroke(oscar);
-                    col4_2.setStroke(oscar);
-                    col5_3.setStroke(oscar);
-                    col6_4.setStroke(oscar);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(0)) {
+                        if (rutasRouterCol4.get(1)) {
+                            rutasRouterCol1.set(0, false);
+                            rutasRouterCol2.set(0, false);
+                            rutasRouterCol3.set(0, false);
+                            rutasRouterCol4.set(1, false);
+                            rutasRouterCol5.set(1, false);
+
+                            for (int p = 0; p < 5; ++p) {
+                                if (p >= 3) routeOsc[p] = 1;
+                                else routeOsc[p] = 0;
+                            }
+
+                            col1_2.setStroke(oscar);
+                            col2_1.setStroke(oscar);
+                            col3_1.setStroke(oscar);
+                            col4_2.setStroke(oscar);
+                            col5_3.setStroke(oscar);
+                            col6_4.setStroke(oscar);
+                            return 0;
+                        } else {
+                            info.setText("Ruta no disponible para enlace Oscar y Rossi");
+                            return -1;
+                        }
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Rossi");
+                        return -1;
+                    }
+                } else if (rutasRouterCol1.get(1)) {
+                    if (rutasRouterCol3.get(0)) {
+                        if (rutasRouterCol4.get(1)) {
+                            rutasRouterCol1.set(1, false);
+                            rutasRouterCol2.set(1, false);
+                            rutasRouterCol3.set(0, false);
+                            rutasRouterCol4.set(1, false);
+                            rutasRouterCol5.set(1, false);
+
+                            for (int p = 0; p < 5; ++p) {
+                                if (p == 2) routeOsc[p] = 0;
+                                else routeOsc[p] = 1;
+                            }
+
+                            col1_3.setStroke(oscar);
+                            col2_3.setStroke(oscar);
+                            col3_3.setStroke(oscar);
+                            col4_2.setStroke(oscar);
+                            col5_3.setStroke(oscar);
+                            col6_4.setStroke(oscar);
+                            return 0;
+                        } else {
+                            info.setText("Ruta no disponible para enlace Oscar y Rossi");
+                            return -1;
+                        }
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Rossi");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Oscar y Rossi");
                     return -1;
                 }
             }
             case "Diego" -> {
-                if (routerCol1_1) {
-                    routerCol1_1 = false;
-                    routeOsc = 1;
-                    col1_2.setStroke(oscar);
-                    col2_1.setStroke(oscar);
-                    col3_2.setStroke(oscar);
-                    col4_4.setStroke(oscar);
-                    col5_5.setStroke(oscar);
-                    col6_6.setStroke(oscar);
-                    return 0;
-                } else if (routerCol1_2) {
-                    routerCol1_2 = false;
-                    routeOsc = 2;
-                    col1_3.setStroke(oscar);
-                    col2_3.setStroke(oscar);
-                    col3_4.setStroke(oscar);
-                    col4_6.setStroke(oscar);
-                    col5_6.setStroke(oscar);
-                    col6_6.setStroke(oscar);
-                    return 0;
+                if (rutasRouterCol1.get(0)) {
+                    if (rutasRouterCol3.get(1)) {
+                        if (rutasRouterCol4.get(2)) {
+                            if (rutasRouterCol5.get(2)) {
+                                rutasRouterCol1.set(0, false);
+                                rutasRouterCol2.set(0, false);
+                                rutasRouterCol3.set(1, false);
+                                rutasRouterCol4.set(2, false);
+                                rutasRouterCol5.set(2, false);
+
+                                for (int p = 0; p < 5; ++p) {
+                                    if (p == 2) routeOsc[p] = 1;
+                                    else if (p > 2) routeOsc[p] = 2;
+                                    else routeOsc[p] = 0;
+                                }
+
+                                col1_2.setStroke(oscar);
+                                col2_1.setStroke(oscar);
+                                col3_2.setStroke(oscar);
+                                col4_4.setStroke(oscar);
+                                col5_5.setStroke(oscar);
+                                col6_6.setStroke(oscar);
+                                return 0;
+                            }  else {
+                                info.setText("Ruta no disponible para enlace Oscar y Diego");
+                                return -1;
+                            }
+                        }  else {
+                            info.setText("Ruta no disponible para enlace Oscar y Diego");
+                            return -1;
+                        }
+                    }  else {
+                        info.setText("Ruta no disponible para enlace Oscar y Diego");
+                        return -1;
+                    }
+                } else if (rutasRouterCol1.get(1)) {
+                    if (rutasRouterCol5.get(2)) {
+                        rutasRouterCol1.set(1, false);
+                        rutasRouterCol2.set(1, false);
+                        rutasRouterCol3.set(2, false);
+                        rutasRouterCol4.set(3, false);
+                        rutasRouterCol5.set(2, false);
+
+                        for (int p = 0; p < 5; ++p) {
+                            if (p == 3) routeOsc[p] = 3;
+                            else if (p == 2 || p == 4) routeOsc[p] = 2;
+                            else routeOsc[p] = 1;
+                        }
+
+                        col1_3.setStroke(oscar);
+                        col2_3.setStroke(oscar);
+                        col3_4.setStroke(oscar);
+                        col4_6.setStroke(oscar);
+                        col5_6.setStroke(oscar);
+                        col6_6.setStroke(oscar);
+                        return 0;
+                    } else {
+                        info.setText("Ruta no disponible para enlace Oscar y Diego");
+                        return -1;
+                    }
                 } else {
                     info.setText("Ruta no disponible para enlace Oscar y Diego");
                     return -1;
@@ -507,17 +742,94 @@ public class Controller {
         }
     }
 
+    private int rutaChristian(String usuario2) {
+        switch (usuario2) {
+            case "Sebas" -> {
+                System.out.println();
+                return 0;
+            }
+            case "Raul" -> {
+                return 0;
+            }
+            case "Rossi" -> {
+                System.out.print("");
+                return 0;
+            }
+            case "Diego" -> {
+                System.out.println("");
+                return 0;
+            }
+            default -> {
+                return -1;
+            }
+        }
+    }
+
+    private int rutaGama(String usuario2) {
+        switch (usuario2) {
+            case "Sebas" -> {
+                System.out.println();
+                return 0;
+            }
+            case "Raul" -> {
+                return 0;
+            }
+            case "Rossi" -> {
+                System.out.print("");
+                return 0;
+            }
+            case "Diego" -> {
+                System.out.println("");
+                return 0;
+            }
+            default -> {
+                return -1;
+            }
+        }
+    }
+
+    /**
+     * Colorea al default la ruta liberada
+     * @param usuario1 String con el usuario1 a liberar
+     */
     private void limpiarRuta(String usuario1) {
         switch (usuario1) {
             case "Jorge" -> {
-                routerCol1_1 = true; // Libera el nodo router
+                for (int i = 0; i < routeJor.length; i++) { // Libera el nodo router Columna1
+                    if (routeJor[i] != -1) {
+                        switch (i) {
+                            case 0 -> rutasRouterCol1.set(routeJor[i], true);
+                            case 1 -> rutasRouterCol2.set(routeJor[i], true);
+                            case 2 -> rutasRouterCol3.set(routeJor[i], true);
+                            case 3 -> rutasRouterCol4.set(routeJor[i], true);
+                            case 4 -> rutasRouterCol5.set(routeJor[i], true);
+                        }
+                        System.out.println(rutasRouterCol1.toString());
+                        System.out.println(rutasRouterCol2.toString());
+                    }
+                }
+
+                // CAMBIA COLOR LINEAS AL DEFAULT
                 for (Line l : lineasAll) {
                     if (l.getStroke().equals(jorge)) l.setStroke(Paint.valueOf(def)); // Cambia color linea
                 }
             }
             case "Oscar" -> {
-                routerCol1_1 = routeOsc == 1 || routerCol1_1; // Libera el nodo router que tomo Oscar
-                routerCol1_2 = routeOsc == 2 || routerCol1_2; // Libera el nodo router que tomo Oscar
+                for (int i = 0; i < routeOsc.length; i++) { // Libera el nodo router Columna1
+                    if (routeOsc[i] != -1) {
+                        switch (i) {
+                            case 0 -> rutasRouterCol1.set(routeOsc[i], true);
+                            case 1 -> rutasRouterCol2.set(routeOsc[i], true);
+                            case 2 -> rutasRouterCol3.set(routeOsc[i], true);
+                            case 3 -> rutasRouterCol4.set(routeOsc[i], true);
+                            case 4 -> rutasRouterCol5.set(routeOsc[i], true);
+                        }
+                        System.out.println(rutasRouterCol1.toString());
+                        System.out.println(rutasRouterCol2.toString());
+                    }
+                }
+
+                // CAMBIA COLOR LINEAS AL DEFAULT
                 for (Line l : lineasAll) {
                     if (l.getStroke().equals(oscar)) l.setStroke(Paint.valueOf(def));
                 }
@@ -550,6 +862,18 @@ public class Controller {
         labels = new ArrayList<>(Arrays.asList(
                 enlace1,enlace2,enlace3,enlace4,enlaceEspera1,enlaceEspera2,enlaceEspera3
         ));
+
+        // RUTAs
+        rutasRouterCol1 = new ArrayList<>(Arrays.asList(routerCol1_1,routerCol1_2,routerCol1_3,vacio1));
+        rutasRouterCol2 = new ArrayList<>(Arrays.asList(routerCol2_1,routerCol2_2,routerCol2_3,routerCol2_4));
+        rutasRouterCol3 = new ArrayList<>(Arrays.asList(routerCol3_1,routerCol3_2,routerCol3_3,routerCol3_4));
+        rutasRouterCol4 = new ArrayList<>(Arrays.asList(routerCol4_1,routerCol4_2,routerCol4_3,routerCol4_4));
+        rutasRouterCol5 = new ArrayList<>(Arrays.asList(routerCol5_1,routerCol5_2,routerCol5_3,vacio2));
+
+        routeJor = new int[]{-1, -1, -1, -1, -1};
+        routeOsc = new int[]{-1, -1, -1, -1, -1};
+        routeChr = new int[]{-1, -1, -1, -1, -1};
+        routeGam = new int[]{-1, -1, -1, -1, -1};
 
         // LINEAS DE CADA USER 1
         lineasAll = new ArrayList<>(Arrays.asList(

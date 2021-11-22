@@ -16,7 +16,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240); // 320, 240
         stage.setTitle("Central Telefónica");
         stage.setMaximized(true);
-        stage.getIcons().add(new Image("https://lh3.googleusercontent.com/a-/AOh14GjrRvvLhcweenK-smCS2hbWSe6Q9XnQfPkTj9ZDbA=s83"));
+        stage.getIcons().add(new Image("https://lh3.googleusercontent.com/a-/AOh14GgMXo97s6WQkT7wT4XxMgN05-SNgZHfq00A-Vj_pg=s83"));
         stage.setScene(scene);
         stage.show();
     }
