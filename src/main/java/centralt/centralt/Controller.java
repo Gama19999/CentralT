@@ -15,7 +15,15 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class Controller {
+    // ENLACES ACTIVOS
     private int x = -1;
+
+    // PRECIOS
+    private final float segundoPlus = 0.55f;
+    private float segundoNice = 0.75f;
+
+    @FXML
+    private ComboBox<String> secondsPrice;
 
     // COLORES
     private final String def = "#042b54";
@@ -212,6 +220,8 @@ public class Controller {
     protected void conectPressed() {
         String involucrado1 = users1.getSelectionModel().getSelectedItem();
         String involucrado2 = users2.getSelectionModel().getSelectedItem();
+        String tipoPrecio = secondsPrice.getSelectionModel().getSelectedItem();
+        float precioSeg = 0.0f;
 
         // Enlaces llenos
         if (x == 3) {
@@ -225,8 +235,14 @@ public class Controller {
             return;
         }
 
-        System.out.println(rutasRouterCol1.toString());
-        System.out.println(rutasRouterCol2.toString());
+        // No se selecciono precio segundo
+        if (tipoPrecio.equals("Precio segundo")) {
+            info.setText("Precio por segundo no seleccionado");
+            return;
+        } else {
+            if (tipoPrecio.equals("Segundo Plus")) precioSeg = segundoPlus;
+            else precioSeg = segundoNice;
+        }
 
         // TODO inicializar ruta
         int possible = 0;
@@ -253,7 +269,7 @@ public class Controller {
                 for(int i=0; i<4; i++) {
                     if(!buttons.get(i).isVisible()) {
                         if(!paids.get(i).isVisible()) {
-                            links.add(new Enlace(involucrado1, involucrado2, i));
+                            links.add(new Enlace(involucrado1, involucrado2, i, precioSeg));
                             info.setText("Enlace Establecido");
                             x++;
 
@@ -278,6 +294,7 @@ public class Controller {
         // Regresando comboboxes al original
         users1.getSelectionModel().select("Usuario 1");
         users2.getSelectionModel().select("Usuario 2");
+        secondsPrice.getSelectionModel().select("Precio segundo");
     }
 
     @FXML
@@ -312,9 +329,10 @@ public class Controller {
 
             // Generando factura
             Date timer = links.get(indexToFree).finalizarTimer();
+            float precioSegundo = links.get(indexToFree).getPrecioSegundo();
             minutos = timer.getMinutes();
             segundos = timer.getSeconds();
-            price = (timer.getMinutes() * 1.5f) + (timer.getSeconds() * 0.75f);
+            price = (timer.getMinutes() * 5.0f) + (timer.getSeconds() * precioSegundo);
 
             // TODO terminar ruta
             limpiarRuta(links.get(indexToFree).getInvolucrados().getKey());
@@ -363,6 +381,13 @@ public class Controller {
     @FXML
     protected void user2Selected(ActionEvent e) {
         String selected = users2.getSelectionModel().getSelectedItem();
+        System.out.println(selected);
+        System.out.println(e.toString());
+    }
+
+    @FXML
+    protected void pricesSelected(ActionEvent e) {
+        String selected = secondsPrice.getSelectionModel().getSelectedItem();
         System.out.println(selected);
         System.out.println(e.toString());
     }
@@ -1538,5 +1563,9 @@ public class Controller {
         users2.getItems().removeAll(users2.getItems());
         users2.getItems().addAll("Sebas","Raul","Rossi","Diego");
         users2.getSelectionModel().select("Usuario 2");
+
+        secondsPrice.getItems().removeAll(secondsPrice.getItems());
+        secondsPrice.getItems().addAll("Segundo Plus","Segundo Nice");
+        secondsPrice.getSelectionModel().select("Precio segundo");
     }
 }

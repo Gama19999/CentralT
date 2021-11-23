@@ -11,7 +11,7 @@
          <content>
             <AnchorPane prefHeight="686.0" prefWidth="1307.0">
                <children>
-                  <Label fx:id="fecha" layoutX="336.0" layoutY="207.0" text="CENTRAL TELEFÓNICA">
+                  <Label layoutX="336.0" layoutY="207.0" text="CENTRAL TELEFÓNICA">
                      <font>
                         <Font name="Gill Sans Nova Ultra Bold" size="47.0" />
                      </font>
@@ -52,7 +52,7 @@
                      </font>
                   </Label>
                   <Button fx:id="initPrograma" layoutX="1185.0" layoutY="601.0" mnemonicParsing="false" onAction="#pressedInitPrograma" text="Iniciar Programa" />
-                  <Label layoutX="598.0" layoutY="637.0" text="Fecha">
+                  <Label layoutX="520.0" layoutY="637.0" text="22/Noviembre/2021">
                      <font>
                         <Font name="Gill Sans Nova Ultra Bold" size="19.0" />
                      </font>
