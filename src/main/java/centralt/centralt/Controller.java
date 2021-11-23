@@ -367,11 +367,6 @@ public class Controller {
         System.out.println(e.toString());
     }
 
-    @FXML
-    protected static void iniciarPrograma(ActionEvent e) {
-        Main.ventana = 1;
-    }
-
     /**
      * Colorea la ruta (si disponible) entre usuario Jorge y Usuario 2
      * @param usuario2 String con el usuario2

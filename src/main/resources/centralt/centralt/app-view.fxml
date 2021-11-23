@@ -387,10 +387,22 @@
                         <Font name="SansSerif Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="enlace1" layoutX="200.0" layoutY="40.0" text="ENLACE 1" visible="false" />
-                  <Label fx:id="enlace2" layoutX="200.0" layoutY="70.0" text="ENLACE 2" visible="false" />
-                  <Label fx:id="enlace3" layoutX="200.0" layoutY="100.0" text="ENLACE 3" visible="false" />
-                  <Label fx:id="enlace4" layoutX="200.0" layoutY="130.0" text="ENLACE 4" visible="false" />
+                  <Label fx:id="enlace1" layoutX="200.0" layoutY="40.0" text="ENLACE 1" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
+                  <Label fx:id="enlace2" layoutX="200.0" layoutY="70.0" text="ENLACE 2" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
+                  <Label fx:id="enlace3" layoutX="200.0" layoutY="100.0" text="ENLACE 3" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
+                  <Label fx:id="enlace4" layoutX="200.0" layoutY="130.0" text="ENLACE 4" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
                   <Label alignment="CENTER" layoutX="23.0" layoutY="180.0" text="ENLACES EN ESPERA" textAlignment="CENTER" visible="false">
                      <font>
                         <Font name="SansSerif Bold" size="15.0" />
