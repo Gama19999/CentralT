@@ -454,7 +454,7 @@ public class Controller {
                             col6_2.setStroke(jorge);
                             return 0;
                         } else {
-                            info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                            info.setText("Ruta no disponible para enlace Jorge y Raul");
                             return -1;
                         }
                     }  else {
@@ -491,11 +491,11 @@ public class Controller {
                                 col6_4.setStroke(jorge);
                                 return 0;
                             } else {
-                                info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                                info.setText("Ruta no disponible para enlace Jorge y Rossi");
                                 return -1;
                             }
                         } else {
-                            info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                            info.setText("Ruta no disponible para enlace Jorge y Rossi");
                             return -1;
                         }
                     } else {
@@ -533,11 +533,11 @@ public class Controller {
                                 col6_6.setStroke(jorge);
                                 return 0;
                             } else {
-                                info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                                info.setText("Ruta no disponible para enlace Jorge y Diego");
                                 return -1;
                             }
                         } else {
-                            info.setText("Ruta no disponible para enlace Jorge y Sebas");
+                            info.setText("Ruta no disponible para enlace Jorge y Diego");
                             return -1;
                         }
                     }  else {

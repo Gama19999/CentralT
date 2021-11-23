@@ -67,6 +67,11 @@
                         <Font name="Gill Sans Nova Ultra Bold" size="22.0" />
                      </font>
                   </Label>
+                  <Label layoutX="993.0" layoutY="230.0" text="Versión 1">
+                     <font>
+                        <Font name="Gill Sans Nova Ultra Bold" size="22.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </content>
