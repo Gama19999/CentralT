@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
+    public static int ventana = 0;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("app-view.fxml"));
